@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Spartan:wght@400;600;700&display=swap");
+
+// Brand colors
+$blue: #13547a;
+$green: #37ecba;
+$black: #000000;
+$white: #ffffff;
+$grey: #9cafc3;
+$gradient: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+$gradient-background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+
+// Updating Bulma's global variables
+$family-primary: "Oswald", sans-serif;
+$family-secondary: "Spartan", sans-serif;
+$grey-dark: $black;
+$grey-light: $grey;
+$primary: $blue;
+$secondary: $green;
+$link: $blue;
+
+// Updating some of Bulma's component variables
+$body-background-color: $white;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+.container{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  grid-gap: 2rem;
+  background-image: $gradient-background;
+  min-width: 100vw;
+  padding: 1rem 10%;
+}
+
+.navbar{
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: $gradient;
+  border-radius: 2rem;
+  padding: 2rem 1rem 1.3rem 1rem;
+  width: 90vw;
+  margin: auto;
+
+  &__input,
+  &__select {
+    outline: none;
+    background-color: rgba(8, 8, 8, 0.1);
+    border: 2px solid $white;
+    border-radius: 0.2rem;
+    color: $white;
+    margin: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  &__input {
+    width: 35vw;
+    display: grid;
+    grid-template-areas: "date";
+    align-items: center;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+
+    ::-webkit-calendar-picker-indicator {
+      opacity: 0;
+    }
+
+    input {
+      // A reset of styles
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      padding: 1rem 0.5rem;
+      margin: 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: inherit;
+      line-height: inherit;
+      outline: none;
+      grid-area: date;
+      align-self: center;
+    }
+
+  }
+
+  &__select {
+    width: 85vw;
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+    color: $white;
+
+    select {
+      // A reset of styles
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      color: $white;
+      margin: 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: inherit;
+      line-height: inherit;
+      outline: none;
+      grid-area: select;
+      align-self: center;
+
+      option {
+        background-color: $white;
+        color: $black;
+      }
+    }
+  }
+}
+
+.black {
+  color: $black;
+}
+
+.grey {
+  color: $grey;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  background-color: $white;
+  height: max-content;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    width: 100vw;
+    margin: 0;
+    padding: 2rem 0.5rem;
+    border-radius: 0;
+
+    &__input {
+      width: 15vw;
+      margin: 0;
+    }
+    &__select {
+      width: 15vw;
+      margin: 0;
+    }
+  } 
+}
+
+// Importing only what I need from Bulma
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/base/_all.sass";
+@import "../../node_modules/bulma/sass/elements/button.sass";
+@import "../../node_modules/bulma/sass/elements/container.sass";
+@import "../../node_modules/bulma/sass/elements/title.sass";
+@import "../../node_modules/bulma/sass/form/_all.sass";
+@import "../../node_modules/bulma/sass/components/navbar.sass";
+@import "../../node_modules/bulma/sass/layout/hero.sass";
+@import "../../node_modules/bulma/sass/layout/section.sass";
