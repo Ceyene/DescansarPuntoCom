@@ -130,8 +130,11 @@ function App() {
     return "0";
   };
   /* --------------------------------- */
-  const [dateIn, dateOut] = dates;
-  const [country, price, size] = filters;
+  const dateIn = dates[0].value;
+  const dateOut = dates[1].value;
+  const country = filters[0].value;
+  const price = filters[1].value;
+  const size = filters[2].value;
 
   return (
     <div className="App">
